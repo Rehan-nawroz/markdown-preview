@@ -3,8 +3,8 @@ import type {
   FilePickerWindow,
   PermissionCapableHandle,
 } from '../types/file-system-access';
-import { ACCEPT_ATTRIBUTE, ensureMarkdownExtension } from './file';
-import { isAbortError } from './file';
+import { ACCEPT_ATTRIBUTE } from './constants';
+import { ensureMarkdownExtension, isAbortError } from './file';
 
 const MARKDOWN_PICKER_TYPES = [
   {
