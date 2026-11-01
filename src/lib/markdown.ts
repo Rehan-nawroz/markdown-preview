@@ -68,7 +68,7 @@ md.renderer.rules.fence = (tokens, idx) => {
 };
 
 md.renderer.rules.link_open = (tokens, idx, options, _env, self) => {
-  const href = tokens[idx].attrGet('href') ?? '';
+  const href = String(tokens[idx].attrGet('href') ?? '');
   if (!href.startsWith('#')) {
     tokens[idx].attrSet('target', '_blank');
     tokens[idx].attrSet('rel', 'noopener noreferrer');
@@ -76,10 +76,14 @@ md.renderer.rules.link_open = (tokens, idx, options, _env, self) => {
   return self.renderToken(tokens, idx, options);
 };
 
-md.renderer.rules.image = (tokens, idx, options, _env, self) => {
-  tokens[idx].attrSet('loading', 'lazy');
-  tokens[idx].attrSet('decoding', 'async');
-  tokens[idx].attrSet('referrerpolicy', 'no-referrer');
+md.renderer.rules.image = (tokens, idx, options, env, self) => {
+  const token = tokens[idx];
+  // `renderToken` emits attributes verbatim, so the alt text has to be resolved
+  // from the image's inline children the way markdown-it's default rule does.
+  token.attrSet('alt', self.renderInlineAsText(token.children ?? [], options, env));
+  token.attrSet('loading', 'lazy');
+  token.attrSet('decoding', 'async');
+  token.attrSet('referrerpolicy', 'no-referrer');
   return self.renderToken(tokens, idx, options);
 };
 
