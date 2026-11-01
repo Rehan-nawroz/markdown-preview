@@ -22,12 +22,14 @@ export function detectEol(text: string): Eol {
 }
 
 export async function readMarkdownFile(file: File): Promise<ParsedMarkdownFile> {
-  const raw = await file.text();
-  const bom = raw.charCodeAt(0) === 0xfeff;
-  const withoutBom = bom ? raw.slice(1) : raw;
+  // Inspect the raw bytes: UTF-8 decoding strips a leading BOM, so it can only be
+  // detected before decoding. `TextDecoder` then removes it from the text.
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  const bom = bytes.length >= 3 && bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf;
+  const raw = new TextDecoder('utf-8').decode(bytes);
   return {
-    text: withoutBom.replace(/\r\n?/g, '\n'),
-    eol: detectEol(withoutBom),
+    text: raw.replace(/\r\n?/g, '\n'),
+    eol: detectEol(raw),
     bom,
   };
 }
