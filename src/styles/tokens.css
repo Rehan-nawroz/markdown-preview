@@ -1,0 +1,93 @@
+:root {
+  color-scheme: dark;
+
+  /* Canvas and tonal layers */
+  --bg: #000000;
+  --surface-1: #060606;
+  --surface-2: #0a0a0a;
+  --surface-3: #0d0d0d;
+  --surface-4: #121212;
+  --surface-5: #171717;
+  --surface-6: #1c1c1e;
+  --surface-7: #242426;
+
+  /* Structure */
+  --border-soft: #1f1f1f;
+  --border: #222222;
+  --border-mid: #262626;
+  --border-strong: #333333;
+  --border-bright: #404040;
+
+  /* Type */
+  --text-strong: #ffffff;
+  --text: #ededed;
+  --text-body: #d4d4d8;
+  --text-muted: #a3a3a3;
+  --text-dim: #8e8e93;
+  --text-faint: #71717a;
+  --text-ghost: #525252;
+
+  /* Accents */
+  --accent: #f3e4c9;
+  --accent-hover: #faedd5;
+  --accent-ink: #000000;
+  --accent-soft: rgba(243, 228, 201, 0.08);
+  --accent-line: rgba(243, 228, 201, 0.25);
+  --success: #34d399;
+  --success-dim: #10b981;
+  --warning: #fbbf24;
+  --warning-surface: #1f1606;
+  --warning-border: #452b04;
+  --danger: #f87171;
+  --danger-soft: #ffb4ab;
+
+  /* Markdown syntax */
+  --syntax-heading: #38bdf8;
+  --syntax-keyword: #c084fc;
+  --syntax-string: #34d399;
+  --syntax-number: #fbbf24;
+  --syntax-link: #f6bb84;
+  --syntax-comment: #71717a;
+
+  /* Typography */
+  --font-ui: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', ui-sans-serif, system-ui,
+    -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+
+  --text-2xs: 10px;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 13px;
+  --text-base: 15px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-2xl: 20px;
+  --text-3xl: 24px;
+  --text-4xl: 32px;
+
+  /* Shape */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  /* Layout */
+  --header-h: 56px;
+  --status-h: 32px;
+  --measure: 760px;
+  --gutter: 20px;
+
+  /* Elevation: borders and tonal steps, plus tight floating shadows */
+  --shadow-sheet: 0 16px 40px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px #222222;
+  --shadow-pop: 0 20px 45px -10px rgba(0, 0, 0, 0.95), 0 0 0 1px #262626;
+  --shadow-menu: 0 12px 32px -8px rgba(0, 0, 0, 0.92), 0 0 0 1px #262626;
+  --shadow-toast: 0 12px 32px -8px rgba(0, 0, 0, 0.9), 0 0 0 1px #282828;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration: 180ms;
+}
