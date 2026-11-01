@@ -467,6 +467,13 @@
   background: var(--bg);
 }
 
+.doc-body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .doc-header {
   z-index: 30;
   display: grid;
